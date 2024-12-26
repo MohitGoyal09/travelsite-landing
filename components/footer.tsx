@@ -5,24 +5,33 @@ import Image from "next/image";
 export default function Footer() {
   const [openSection, setOpenSection] = useState<string | null>(null);
 
-interface SectionProps {
+  interface SectionProps {
     section: string;
-}
+  }
 
-const toggleSection = (section: SectionProps['section']): void => {
+  const toggleSection = (section: SectionProps['section']) => {
     if (openSection === section) {
-        setOpenSection(null);
+      setOpenSection(null);
     } else {
-        setOpenSection(section);
+      setOpenSection(section);
     }
-};
+  };
 
   return (
     <div className="w-[398px] sm:w-[897px] md:w-[1184px] py-8 sm:py-16 mx-auto">
+      {/* Upper Section - Logo and Description */}
       <div className="flex flex-col md:flex-row gap-16">
         <div className="flex flex-col gap-8 md:flex-1">
+          {/* Logo and Description */}
           <div className="flex flex-col gap-8">
             <div className="flex items-center gap-4">
+              <Image
+                src="/Vector.svg"
+                alt="Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10"
+              />
               <div className="text-[#191825] text-2xl font-black font-['Circular Std'] leading-10">
                 Travlog
               </div>
@@ -32,7 +41,7 @@ const toggleSection = (section: SectionProps['section']): void => {
               It has roots in a piece of classical Latin literature from 45 BC.
             </div>
           </div>
-
+          {/* Social Icons */}
           <div className="flex gap-8">
             <div className="w-8 h-8 relative">
               <Image
@@ -56,7 +65,9 @@ const toggleSection = (section: SectionProps['section']): void => {
           </div>
         </div>
 
+        {/* Links Sections */}
         <div className="md:flex-1 flex flex-col sm:flex-row gap-8">
+          {/* Company Section */}
           <div className="flex-1">
             <div
               className="flex justify-between items-center cursor-pointer md:cursor-default"
@@ -79,9 +90,7 @@ const toggleSection = (section: SectionProps['section']): void => {
             </div>
             <div
               className={`flex flex-col gap-8 mt-8 ${
-                openSection === "company" || window.innerWidth >= 768
-                  ? "block"
-                  : "hidden"
+                openSection === "company" ? "block" : "hidden md:block"
               }`}
             >
               <div className="text-[#191825]/75 text-lg font-normal font-['Inter'] leading-[28.80px]">
@@ -96,6 +105,7 @@ const toggleSection = (section: SectionProps['section']): void => {
             </div>
           </div>
 
+          {/* Contact Section */}
           <div className="flex-1">
             <div
               className="flex justify-between items-center cursor-pointer md:cursor-default"
@@ -118,9 +128,7 @@ const toggleSection = (section: SectionProps['section']): void => {
             </div>
             <div
               className={`flex flex-col gap-8 mt-8 ${
-                openSection === "contact" || window.innerWidth >= 768
-                  ? "block"
-                  : "hidden"
+                openSection === "contact" ? "block" : "hidden md:block"
               }`}
             >
               <div className="text-[#191825]/75 text-lg font-normal font-['Inter'] leading-[28.80px]">
@@ -138,6 +146,7 @@ const toggleSection = (section: SectionProps['section']): void => {
             </div>
           </div>
 
+          {/* Meet Us Section */}
           <div className="flex-1">
             <div
               className="flex justify-between items-center cursor-pointer md:cursor-default"
@@ -160,9 +169,7 @@ const toggleSection = (section: SectionProps['section']): void => {
             </div>
             <div
               className={`flex flex-col gap-8 mt-8 ${
-                openSection === "meetUs" || window.innerWidth >= 768
-                  ? "block"
-                  : "hidden"
+                openSection === "meetUs" ? "block" : "hidden md:block"
               }`}
             >
               <div className="text-[#191825]/75 text-lg font-normal font-['Inter'] leading-[28.80px]">
